@@ -11,7 +11,7 @@ function capitalize(text: string): string {
 }
 
 export default (options: any) => {
-  const pageName = options.name === '/' ? 'index' : options.name
+  const pageName = options.name
   console.log(`Generating "${pageName}" page...`)
   const pagesPath = join(process.cwd(), 'pages')
 
@@ -19,20 +19,27 @@ export default (options: any) => {
     mkdirSync(pagesPath)
   }
 
-  const pagePath = join(pagesPath, pageName)
+  const paths = pageName.split('/')
 
-  if (!existsSync(pagePath)) {
-    mkdirSync(pagePath)
+  let root = []
+  for (const path of paths) {
+    const _path = join(pagesPath, ...root, path)
+    if (!existsSync(_path)) {
+      mkdirSync(_path)
+    }
+    root.push(path)
   }
 
+  const lastPageName = root.at(root.length - 1)
+
   writeFileSync(
-    join(pagePath, 'index.vue'),
+    join(pagesPath, ...root, 'index.vue'),
     `
     <script setup lang="ts">
     </script>
 
     <template>
-    <h1>${capitalize(pageName)} Page</h1>
+    <h1>${capitalize(lastPageName)} Page</h1>
     </template>
   `
   )
