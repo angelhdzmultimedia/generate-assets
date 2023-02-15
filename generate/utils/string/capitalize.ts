@@ -6,3 +6,10 @@ export function capitalize(text: string): string {
     })
     .join(' ')
 }
+
+export function capitalizeAll(text: string): string {
+  return text
+    .split(' ')
+    .map((item) => capitalize(item))
+    .join(' ')
+}

@@ -14,17 +14,19 @@ export default (args: string[]) => {
     mkdirSync(storesPath)
   }
 
-  const storeName = options.name
+  const storeName = options.name.split('-').join('/')
+  const _storeName = storeName.split('/')[storeName.split('/').length - 1]
 
-  const fullPath = buildPaths(options.name, storesPath)
-
+  const fullPath = buildPaths(storeName, storesPath)
+  writeFileSync(join(storesPath, ...fullPath, 'actions.ts'), '// Actions')
+  writeFileSync(join(storesPath, ...fullPath, 'state.ts'), '// State')
   writeFileSync(
     join(storesPath, ...fullPath, 'index.ts'),
     `import {defineStore} from 'pinia'
 
 export const use${capitalize(
-      storeName
-    )}Store = defineStore('${storeName}', () => {
+      _storeName
+    )}Store = defineStore('${_storeName}', () => {
   return {
 
   }
