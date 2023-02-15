@@ -5,7 +5,7 @@ import { capitalize } from '~/generate//utils/string/capitalize'
 
 export default (options: any) => {
   const apiName = options.name
-  console.log(`Generating "${apiName}" api...`)
+  console.log(`Generating "${apiName}" server api...`)
 
   if (!existsSync('server')) {
     mkdirSync('server')
