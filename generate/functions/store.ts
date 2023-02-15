@@ -1,5 +1,6 @@
 import { join } from 'node:path'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
+import { buildPaths } from '../utils/path/build'
 
 function capitalize(text: string): string {
   return text
@@ -23,8 +24,10 @@ export default (options: any) => {
     mkdirSync(storePath)
   }
 
+  const fullPath = buildPaths(options.name, storesPath)
+
   writeFileSync(
-    join(storePath, 'index.ts'),
+    join(storePath, ...fullPath, 'index.ts'),
     `
   export const use${capitalize(
     storeName

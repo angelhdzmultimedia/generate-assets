@@ -12,9 +12,16 @@ export default (options: any) => {
     mkdirSync(pagesPath)
   }
 
-  const fullPath = buildPaths(pageName, pagesPath)
+  let fullPath: string[] = []
+  let lastPageName = ''
 
-  const lastPageName = fullPath.at(fullPath.length - 1)
+  if (options.name === 'index') {
+    fullPath = []
+    lastPageName = 'index'
+  } else {
+    fullPath = buildPaths(pageName, pagesPath)
+    lastPageName = fullPath.at(fullPath.length - 1)!
+  }
 
   writeFileSync(
     join(pagesPath, ...fullPath, 'index.vue'),
