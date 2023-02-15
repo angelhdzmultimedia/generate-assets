@@ -60,7 +60,7 @@ export const ${apiName}Api = async (url: string, options: any) => $fetch(\`${bas
   try {
     import.meta.resolve!('axios')
   } catch (error: unknown) {
-    console.log(`Warning: Axios not installed. Install it in order to use the client api.
+    console.log(`Warning: Axios is not installed. Install it in order to use the client api.
 
 NPM: npm add axios 
 PNPM: pnpm add axios
