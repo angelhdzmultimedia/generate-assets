@@ -5,8 +5,12 @@ import { hideBin } from 'yargs/helpers'
 import { useArgs } from '../../utils/args'
 import { capitalize } from '../../utils/string/capitalize'
 
-export default (args: string[]) => {
-  const options: { name: string } = useArgs(args)
+export default (command: string[]) => {
+  const options: { name: string } = useArgs(
+    command,
+    { type: { default: 'store' } },
+    'new store'
+  )
 
   const storesPath = join(process.cwd(), 'stores')
 

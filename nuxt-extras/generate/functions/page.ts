@@ -4,8 +4,8 @@ import { buildPaths } from '../../utils/path/build'
 import { capitalize, capitalizeAll } from '../../utils/string/capitalize'
 import { useArgs } from '../../utils/args'
 
-export default (args: string[]) => {
-  const options: { name: string } = useArgs(args, {}, 'new page')
+export default (command: string[]) => {
+  const options: { name: string } = useArgs(command, {}, 'new page')
   const pageName = options.name.split('-').join('/')
   console.log(`Generating "${pageName}" page...`)
   const pagesPath = join(process.cwd(), 'pages')

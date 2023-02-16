@@ -2,8 +2,29 @@ import { join } from 'node:path'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import { buildPaths } from '../../../utils/path/build'
 import { capitalize } from '../../../utils/string/capitalize'
+import { useArgs } from '../../../utils'
 
-export default (options: any) => {
+export default (command: string[]) => {
+  const options: {
+    name: string
+    post: boolean
+    patch: boolean
+    put: boolean
+    delete: boolean
+    get: boolean
+    axios: boolean
+  } = useArgs(
+    [...command, '<host>', '<port>'],
+    {
+      post: { type: 'boolean', default: false },
+      get: { type: 'boolean', default: false },
+      delete: { type: 'boolean', default: false },
+      patch: { type: 'boolean', default: false },
+      put: { type: 'boolean', default: false },
+      axios: { type: 'boolean', default: false },
+    },
+    'new client api'
+  )
   const apiName = options.name
   console.log(`Generating "${apiName}" client api...`)
 

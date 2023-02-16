@@ -4,8 +4,8 @@ import { buildPaths } from '../../utils/path/build'
 import { capitalize, capitalizeAll } from '../../utils/string/capitalize'
 import { useArgs } from '../../utils/args'
 
-export default (args: string[]) => {
-  const options: any & { name: string } = useArgs(args)
+export default (command: string[]) => {
+  const options: { name: string } = useArgs(command, {}, 'new service')
   const serviceName = options.name.split('-').join('/')
   console.log(`Generating "${serviceName}" service...`)
   const servicesPath = join(process.cwd(), 'services')
@@ -22,7 +22,7 @@ export default (args: string[]) => {
       ...fullPath,
       `${fullPath.length > 0 ? 'index' : serviceName}.ts`
     ),
-    `import { Service, useService } from 'nuxt-api-utils'
+    `import {Service} from 'nuxt-api-utils'
 
 export class ${capitalizeAll(serviceName.split('/').join(' '))
       .split(' ')

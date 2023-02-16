@@ -2,7 +2,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm -C nuxt-app install && pnpm -C nuxt-app dev"
+    "dev": "tsx index.ts",
+    "new:store": "tsx nuxt-extras/generate/index.ts new store",
+    "new:api-client": "tsx nuxt-extras/generate/index.ts new api-client",
+    "new:entity": "tsx nuxt-extras/generate/index.ts new entity",
+    "new:service": "tsx nuxt-extras/generate/index.ts new service",
+    "new:page": "tsx nuxt-extras/generate/index.ts new page",
+    "new:app": "tsx nuxt-extras/generate/index.ts new app"
   },
   "dependencies": {
     "@types/inquirer": "^9.0.3",

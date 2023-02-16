@@ -1,8 +1,8 @@
 import yargs, { CommandModule } from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-export const useArgs = (args: string[], options: any, description = '') => {
+export const useArgs = (command: string[], options: any, description = '') => {
   return yargs(hideBin(process.argv))
-    .command(args.join(' '), description)
+    .command(command.join(' '), description)
     .options(options).argv
 }
