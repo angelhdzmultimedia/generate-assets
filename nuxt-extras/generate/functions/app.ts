@@ -13,6 +13,7 @@ export default (args: string[]) => {
   spawn(`pnpx`, ['nuxi', 'init', appName]).addListener('close', async () => {
     const bla = await inquirer.prompt([
       {
+        name: 'extra',
         message: 'Extra Dependencies',
         type: 'checkbox',
         choices: [
@@ -24,5 +25,6 @@ export default (args: string[]) => {
         ],
       },
     ])
+    console.log(JSON.stringify(bla))
   })
 }
