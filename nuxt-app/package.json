@@ -6,12 +6,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "new": "pnpm dlx tsx nuxt-extras/generate/index.ts new $type $name"
+    "new": "pnpm dlx tsx nuxt-extras/generate/index.ts new $type $name",
+    "clean": "rimraf node_modules pnpm-lock.yaml .nuxt"
   },
   "devDependencies": {
     "nuxt": "^3.2.0"
   },
   "dependencies": {
-    "pinia": "^2.0.30"
+    "pinia": "^2.0.30",
+    "rimraf": "^4.1.2"
   }
 }

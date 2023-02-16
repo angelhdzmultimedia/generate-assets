@@ -1,5 +1,5 @@
-import { useService } from '~/nuxt-extras/utils'
-import { Service } from '../../../../nuxt-extras/entities'
+import { useService } from '~/../nuxt-extras/utils'
+import { Service } from '~/../nuxt-extras/entities'
 import { CookieData, tokens, User, users } from '../login/index.post'
 
 class AuthUserService extends Service<{}, {}, {}, CookieData> {

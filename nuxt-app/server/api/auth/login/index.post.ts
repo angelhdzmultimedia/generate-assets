@@ -1,5 +1,5 @@
-import { useService } from '../../../../nuxt-extras/utils'
-import { Service } from '../../../../nuxt-extras/entities'
+import { useService } from '~/../nuxt-extras/utils'
+import { Service } from '~/../nuxt-extras/entities'
 import { randomUUID } from 'crypto'
 
 export type CookieData = {
