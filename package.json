@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx index.ts",
+    "dev": "pnpm -C nuxt-app i && pnpm -C nuxt-app dev",
     "new:store": "tsx nuxt-extras/generate/index.ts new store",
     "new:api-client": "tsx nuxt-extras/generate/index.ts new api-client",
     "new:entity": "tsx nuxt-extras/generate/index.ts new entity",
