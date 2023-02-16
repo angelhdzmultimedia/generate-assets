@@ -1,6 +1,8 @@
 import { H3Event } from 'h3'
 import { Service } from './service'
 
+export { Service }
+
 export async function useService<T extends Service<any, any, any, any>>(
   event: H3Event,
   baseClass: { new (): T }
