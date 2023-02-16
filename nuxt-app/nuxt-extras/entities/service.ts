@@ -9,11 +9,16 @@ export class Service<B extends {}, P extends {}, Q extends {}, C extends {}> {
 
   constructor() {}
 
-  public useCookie(key: keyof C): [C[keyof C], (value: C[keyof C]) => void] {
+  public useCookie(
+    key: keyof C
+  ): [C[keyof C], (value: C[keyof C]) => void, () => void] {
     return [
       String(getCookie(this.event!, key as string)) as any as C[keyof C],
       (value: C[keyof C]) => {
         setCookie(this.event!, key as string, String(value))
+      },
+      () => {
+        deleteCookie(this.event!, key as string)
       },
     ]
   }

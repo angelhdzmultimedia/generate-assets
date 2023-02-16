@@ -6,7 +6,7 @@ import { useArgs } from '../../utils/args'
 import { capitalize } from '../../utils/string/capitalize'
 
 export default (args: string[]) => {
-  const options: any & { name: string } = useArgs(args)
+  const options: { name: string } = useArgs(args)
 
   const storesPath = join(process.cwd(), 'stores')
 
