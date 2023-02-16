@@ -1,5 +1,5 @@
 import { H3Event } from 'h3'
-import { Service } from './service'
+import { Service } from '../entities/service'
 
 export { Service }
 

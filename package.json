@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "new": "pnpx tsx generate/index.ts new $type $name "
+    "new": "pnpx tsx nuxt-extras/generate/index.ts new"
   },
   "dependencies": {
     "@types/node": "^18.13.0",
