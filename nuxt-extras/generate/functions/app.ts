@@ -6,25 +6,31 @@ import { useArgs } from '../../utils/args'
 import { spawn } from 'node:child_process'
 import inquirer from 'inquirer'
 
-export default (args: string[]) => {
+export default async (args: string[]) => {
   const options: any & { name: string } = useArgs(args)
   const appName = options.name
   console.log(`Generating "${appName}" app...`)
-  spawn(`pnpx`, ['nuxi', 'init', appName]).addListener('close', async () => {
-    const bla = await inquirer.prompt([
-      {
-        name: 'extra',
-        message: 'Extra Dependencies',
-        type: 'checkbox',
-        choices: [
-          {
-            name: 'quasar',
-            value: 'quasar',
-            key: 'quasar',
-          },
-        ],
-      },
-    ])
-    console.log(JSON.stringify(bla))
-  })
+  const bla = await inquirer.prompt([
+    {
+      name: 'extra',
+      message: 'Extra Dependencies',
+      type: 'checkbox',
+      choices: [
+        {
+          name: 'Quasar',
+          value: 'quasar',
+          key: 'value',
+        },
+        {
+          name: 'Pinia',
+          value: 'pinia',
+          key: 'value',
+        },
+      ],
+    },
+  ])
+  console.log(JSON.stringify(bla))
+  /*  spawn(`pnpx`, ['nuxi', 'init', appName]).addListener('close', async () => {
+    
+  }) */
 }
