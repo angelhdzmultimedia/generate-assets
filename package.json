@@ -7,13 +7,15 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "new": "pnpx tsx nuxt-extras/generate/index.ts new"
+    "new": "pnpx tsx nuxt-extras/generate/index.ts new $type $name"
   },
   "dependencies": {
+    "@types/inquirer": "^9.0.3",
     "@types/node": "^18.13.0",
     "@types/yargs": "^17.0.22",
     "axios": "^1.3.3",
     "h3": "^1.4.0",
+    "inquirer": "^9.1.4",
     "nuxt": "^3.2.0",
     "pinia": "^2.0.30",
     "ts-node": "^10.9.1",
