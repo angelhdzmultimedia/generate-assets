@@ -5,7 +5,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "new": "pnpm dlx tsx nuxt-extras/generate/index.ts new $type $name"
   },
   "devDependencies": {
     "nuxt": "^3.2.0"

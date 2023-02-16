@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "new": "pnpx tsx nuxt-extras/generate/index.ts new $type $name"
+    "dev": "pnpm -C nuxt-app install && pnpm -C nuxt-app dev"
   },
   "dependencies": {
     "@types/inquirer": "^9.0.3",
