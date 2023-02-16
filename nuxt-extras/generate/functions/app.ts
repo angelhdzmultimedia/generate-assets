@@ -8,9 +8,9 @@ import inquirer from 'inquirer'
 
 export default (args: string[]) => {
   const options: any & { name: string } = useArgs(args)
-  const appName = options.name.split('-').join('/')
+  const appName = options.name
   console.log(`Generating "${appName}" app...`)
-  spawn(`pnpx`, ['nuxi', 'init', appName]).addListener('exit', async () => {
+  spawn(`pnpx`, ['nuxi', 'init', appName]).addListener('close', async () => {
     const bla = await inquirer.prompt([
       {
         message: 'Extra Dependencies',
