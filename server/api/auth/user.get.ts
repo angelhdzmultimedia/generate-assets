@@ -31,8 +31,6 @@ class SessionUser extends Service<{}, {}, {}, CookieData> {
 }
 
 export default defineEventHandler(async (event) => {
-  console.log('mmmmmmmm')
   const sessionUserService = await useService<SessionUser>(event, SessionUser)
-  console.log('lol')
   return sessionUserService.find()
 })
