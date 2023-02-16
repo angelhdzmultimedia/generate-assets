@@ -1,3 +1,7 @@
+/**
+ * TODO:  Finish the generate:app
+ */
+
 import { join } from 'node:path'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import { buildPaths } from '../../utils/path/build'
