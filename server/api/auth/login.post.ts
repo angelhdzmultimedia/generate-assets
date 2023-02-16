@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { tokens, users } from '~~/server/db'
-import { Service } from '~/server/common/service'
-import { useService } from '~~/server/common'
+import { Service } from '~/nuxt-extras/entities'
+import { useService } from '~/nuxt-extras/utils'
 
 type LoginFormData = {
   email: string

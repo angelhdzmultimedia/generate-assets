@@ -1,5 +1,5 @@
-import { useService } from '~~/server/common'
-import { Service } from '~~/server/common/service'
+import { useService } from '~/nuxt-extras/utils'
+import { Service } from '~/nuxt-extras/entities'
 import { tokens, users } from '~~/server/db'
 
 type CookieData = {
