@@ -1,8 +1,6 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { useArgs } from './utils/args'
-
-
+import { useArgs } from '../utils/args'
 
 const commands = ['new', '<type>', '<name>']
 const args: any & { type: string; name: string } = useArgs(

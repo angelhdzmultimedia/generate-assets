@@ -1,8 +1,8 @@
 import { join } from 'node:path'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
-import { buildPaths } from '../utils/path/build'
-import { capitalize, capitalizeAll } from '../utils/string/capitalize'
-import { useArgs } from '../utils/args'
+import { buildPaths } from '../../utils/path/build'
+import { capitalize, capitalizeAll } from '../../utils/string/capitalize'
+import { useArgs } from '../../utils/args'
 
 export default (args: string[]) => {
   const options: any & { name: string } = useArgs(args)
