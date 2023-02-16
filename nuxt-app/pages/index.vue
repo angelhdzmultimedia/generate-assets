@@ -5,11 +5,13 @@ const user = useState('useṙ', () => ({
   name: '',
 }))
 const isLoading = useState('isLoading', () => true)
+const isAuth = useState('isAuth', () => false)
 
 onMounted(async () => {
   try {
     const data = await $fetch('/api/auth/user')
     user.value = { ...data }
+    isAuth.value = true
   } catch (error: unknown) {
     user.value = {
       email: '',
@@ -31,8 +33,8 @@ async function logout() {
   <h1>Index Page</h1>
   <button @click="$router.push('/login')">Login</button>
   <span v-if="isLoading">Loading...</span>
-  <div v-else>
-    <pre v-else>{{ user }}</pre>
+  <div v-else-if="isAuth">
+    <pre>{{ user }}</pre>
     <button @click="logout">Logout</button>
   </div>
 </template>

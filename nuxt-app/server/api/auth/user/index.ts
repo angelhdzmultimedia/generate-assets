@@ -5,15 +5,15 @@ import { CookieData, tokens, User, users } from '../login/index.post'
 class AuthUserService extends Service<{}, {}, {}, CookieData> {
   public find(): Omit<User, 'password'> | undefined | void {
     const [token] = this.useCookie('token')
-
-    if (!token) {
+    const _token = tokens.find((item) => item.token === token)
+    if (!token || !_token) {
       return this.sendError({
         statusCode: 409,
         statusMessage: 'Session not valid',
       })
     }
 
-    const id = tokens.find((item) => item.token === token).id!
+    const id = _token.id
     const user = users.find((item) => item.id === id)
 
     if (!user) {
